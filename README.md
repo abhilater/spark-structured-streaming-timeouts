@@ -1,7 +1,7 @@
 # Spark Structured Streaming - GroupStateTimeout
 Test a popular user sessionization use-case leveraging GroupStateTimeout with Spark structured streaming's Arbitrary Stateful stream processing
 
-## Use sessionization use-case
+## A User sessionization use-case
 POC source code to test out GroupStateTimeout with Spark structured streaming's Arbitrary Stateful stream processing for the following use-case:
 
 * A user vists a website where he can read FAQs to help solve his problems

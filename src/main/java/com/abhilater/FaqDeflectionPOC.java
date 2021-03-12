@@ -38,7 +38,7 @@ public class FaqDeflectionPOC {
           .load("/tmp/delta/faq_events" + FaqDeflectionSourceWriter.EXPERIMENT_NUM)
           .selectExpr("to_timestamp(ts, 'yyyy-MM-dd HH:mm:ss') as eventTime", "uid", "eid", "type")
           .where("type in ('i','f')")
-          .withWatermark("eventTime", "5 minute")
+          .withWatermark("eventTime", "5 minutes")
           .as(Encoders.bean(FAQEvent.class))
           .groupByKey((MapFunction<FAQEvent, String>) FAQEvent::getUid, Encoders.STRING())
           .flatMapGroupsWithState(flatMapStateUpdateFunc,

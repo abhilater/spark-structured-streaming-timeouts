@@ -4,14 +4,14 @@ import org.apache.spark.sql.SparkSession;
 
 public class FaqDeflectionSourceWriter {
 
-  public static final int EXPERIMENT_NUM = 1;
+  public static final int EXPERIMENT_NUM = 3;
 
   public static void main(String[] args) throws Exception {
     try (SparkSession spark = SparkUtils
         .createSparkSession("TestFAQDeflectionTrigger", true)) {
       spark.conf().set("spark.sql.shuffle.partitions", 3);
 
-      final String tableName = "faq_events"+EXPERIMENT_NUM;
+      final String tableName = "faq_events" + EXPERIMENT_NUM;
       final String dataPath = "/Users/abhishek/code/Github/spark-structured-streaming-timeouts/data/";
 
       /**
@@ -50,7 +50,7 @@ public class FaqDeflectionSourceWriter {
           .write()
           .format("delta")
           .mode("append")
-          .save("/tmp/delta/"+ tableName);
+          .save("/tmp/delta/" + tableName);
 
     }
   }
